@@ -9,6 +9,8 @@ public class Main {
 
 //        System.out.println(checking.interest);
 //        System.out.println(savings.interest);
-        System.out.println(investment.calculateChange(120));
+//        System.out.println(investment.calculateChange(120));
+//        System.out.println(investment.calculateChange((float) 122.2));
+        System.out.println(checking.getBalance());
     }
 }
