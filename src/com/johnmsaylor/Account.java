@@ -4,13 +4,11 @@ import java.util.Scanner;
 
 public class Account {
     private int balance;
-    private double interest;
     private int owner;
 
-    public Account(int initialDeposit, int owner, double interest) {
+    public Account(int initialDeposit, int owner) {
         this.balance = initialDeposit;
         this.owner = owner;
-        this.interest = interest;
     }
 
     public void withdrawal(int amount) {
