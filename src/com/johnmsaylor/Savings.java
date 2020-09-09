@@ -2,7 +2,7 @@ package com.johnmsaylor;
 
 public class Savings extends Account {
 
-    protected int interest;
+    private int interest;
 
     public Savings(int initialDeposit, int owner) {
         super(initialDeposit, owner);

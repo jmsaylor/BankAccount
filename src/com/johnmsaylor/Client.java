@@ -1,28 +1,29 @@
 package com.johnmsaylor;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class DebitCard {
-    private int id;
+public class Client {
+    public String id;
+    private String pin;
     private List<Checking> checking;
-
     private List<Savings> saving;
 
-    public DebitCard(){
-        this.id = (int)(Math.random() * 1000000000);
+    public Client(String id, String pin) {
+        this.id = id;
+        this.pin = pin;
+        this.checking = new ArrayList<Checking>();
+        this.saving = new ArrayList<Savings>();
     }
 
     public void addAccount(Checking account) {
-        checking.add(account);
+      checking.add(account);
     }
 
     public void addAccount(Savings account) {
         saving.add(account);
     }
 
-    public int getId() {
-        return id;
-    }
 
     public List<Checking> getChecking() {
         return checking;

@@ -7,10 +7,12 @@ import java.util.Scanner;
 public class Account {
     private float balance;
     private int owner;
+    public String id;
 
     public Account(float initialDeposit, int owner) {
         this.balance = initialDeposit;
         this.owner = owner;
+        this.id = Integer.toString((int) (Math.random() * 1000000000));
     }
 
     public void withdrawal(int amount) {
@@ -41,5 +43,10 @@ public class Account {
 
     public void setBalance(float balance) {
         this.balance = balance;
+    }
+
+    @Override
+    public String toString(){
+        return id;
     }
 }

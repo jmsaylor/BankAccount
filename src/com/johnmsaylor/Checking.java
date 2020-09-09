@@ -2,11 +2,13 @@ package com.johnmsaylor;
 
 public class Checking extends Account {
 
-    protected int interest = 60;
+    private int interest;
+    public DebitCard debitCard;
 
     public Checking(int initialDeposit, int owner) {
         super(initialDeposit, owner);
-
+        this.interest = 60;
+        this.debitCard = new DebitCard();
     }
 
 }
