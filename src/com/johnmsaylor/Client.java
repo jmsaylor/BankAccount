@@ -32,4 +32,9 @@ public class Client {
     public List<Savings> getSaving() {
         return saving;
     }
+
+    @Override
+    public String toString() {
+        return id;
+    }
 }
