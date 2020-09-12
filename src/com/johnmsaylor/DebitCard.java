@@ -3,13 +3,13 @@ package com.johnmsaylor;
 import java.util.List;
 
 public class DebitCard {
-    private int id;
+    private String id;
     private List<Checking> checking;
 
     private List<Savings> saving;
 
     public DebitCard(){
-        this.id = (int)(Math.random() * 1000000000);
+        this.id = Integer.toString((int)(Math.random() * 1000000000));
     }
 
     public void addAccount(Checking account) {
@@ -20,7 +20,7 @@ public class DebitCard {
         saving.add(account);
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

@@ -10,7 +10,7 @@ public class Loan extends Account {
     private double interest;
     private int term;
 
-    public Loan(float initialDeposit, int owner, double interest, int term) {
+    public Loan(float initialDeposit, Client owner, double interest, int term) {
         super(initialDeposit, owner);
         this.setInterest(interest);
         this.setTerm(term);
