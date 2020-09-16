@@ -1,5 +1,7 @@
 package com.johnmsaylor;
 
+import com.johnmsaylor.exceptions.InsufficientFundsException;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
@@ -16,11 +18,13 @@ public abstract class Account {
         this.id = Integer.toString((int) (Math.random() * 1000000000));
     }
 
-    public void withdrawal(double amount) {
+    public void withdraw(double amount) throws InsufficientFundsException {
+        if (amount > balance)
+            throw new InsufficientFundsException();
         System.out.println("Enter your Owner ID");
         var scanner = new Scanner(System.in);
         String input = scanner.next();
-        if (input == pin && amount <= balance) {
+        if (input.trim().strip() == pin) {
             balance -= amount;
             System.out.println("Transaction Success - New Balance: " + balance);
         } else {
@@ -49,5 +53,9 @@ public abstract class Account {
     @Override
     public String toString(){
         return id;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
     }
 }
