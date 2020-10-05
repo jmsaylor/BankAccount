@@ -1,4 +1,6 @@
-package com.johnmsaylor;
+package com.johnmsaylor.bank;
+
+import com.johnmsaylor.Client;
 
 import java.util.ArrayList;
 import java.util.List;

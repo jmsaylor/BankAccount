@@ -1,45 +1,42 @@
 package com.johnmsaylor;
 
+import com.johnmsaylor.account.Account;
+
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 public class Client {
-    public int id;
+    public UUID id;
     public String name;
-
     private Calendar dob;
+    private List<Account> accounts;
 
-    private List<Checking> checking;
-    private List<Savings> saving;
+
     public Client(String name, int month, int day, int year) {
         Calendar dob = Calendar.getInstance();
         dob.set(year,(month - 1),day,0,0,0);
         this.dob = dob;
-        this.id = hashCode();
-        this.checking = new ArrayList<Checking>();
-        this.saving = new ArrayList<Savings>();
+        this.id = UUID.randomUUID();
+        this.accounts = new ArrayList<>();
     }
 
-    public void addAccount(Checking account) {
-      checking.add(account);
-    }
-
-    public void addAccount(Savings account) {
-        saving.add(account);
-    }
-
-
-    public List<Checking> getChecking() {
-        return checking;
-    }
-
-    public List<Savings> getSaving() {
-        return saving;
+    public void addAccount(Account account) {
+        accounts.add(account);
     }
 
     public Calendar getDob() {
         return dob;
+    }
+
+    public void showAccounts() {
+        for (var account : accounts) {
+            account.getDetails();
+        }
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
     }
 }

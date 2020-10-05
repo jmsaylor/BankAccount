@@ -1,17 +1,19 @@
-package com.johnmsaylor;
+package com.johnmsaylor.account;
 
-public class Loan extends Account {
+import com.johnmsaylor.Client;
+
+public class Loan extends AccountTemplate implements Account{
+
+    private double interest;
+    private int term;
 
     private void setInterest(double interest) {
         if (interest < 0 || interest > 23) throw new IllegalArgumentException("See Acceptable Rates");
         this.interest = interest;
     }
 
-    private double interest;
-    private int term;
-
     public Loan(float initialDeposit, Client owner, double interest, int term) {
-        super(initialDeposit, owner);
+        super(initialDeposit, "LOAN", owner);
         this.setInterest(interest);
         this.setTerm(term);
     }
@@ -41,5 +43,28 @@ public class Loan extends Account {
     public void setTerm(int term) {
         if (term < 0 || term > 30) throw new IllegalArgumentException("See Acceptable Loan Durations");
         this.term = term;
+    }
+
+    @Override
+    public void deposit(double amt) {
+
+    }
+
+    @Override
+    public void withdraw(double amt) {
+
+    }
+
+    @Override
+    public void getDetails() {
+        System.out.println(getType() + " " + getId() + " " + getBalance() + " " + getInterest() + " over " + getTerm() + " months");
+    }
+
+    public double getInterest() {
+        return interest;
+    }
+
+    public int getTerm() {
+        return term;
     }
 }
